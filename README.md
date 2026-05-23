@@ -1,11 +1,34 @@
+# Cyber Venus
 
-  # Cyber Venus Website Design
+Cyber Venus is a futuristic cyberpunk fashion landing page built with React, Vite, Tailwind CSS and Motion animations.
 
-  This is a code bundle for Cyber Venus Website Design. The original project is available at https://www.figma.com/design/eC3KBRcIX0VSDAjuewSofJ/Cyber-Venus-Website-Design.
+## Live Demo
 
-  ## Running the code
+https://cyber-site-six.vercel.app/
 
-  Run `npm i` to install the dependencies.
+## Tech Stack
 
-  Run `npm run dev` to start the development server.
-  
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- Motion
+- Vercel
+
+## Features
+
+- Neon pink and black cyberpunk design
+- Animated background
+- Floating particles
+- Custom cursor
+- Smooth scrolling
+- Responsive layout
+- Interactive sections
+
+## Sections
+
+- Hero
+- Collections
+- Digital Model
+- Archive
+- Contact
