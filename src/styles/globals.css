@@ -71,3 +71,22 @@ html {
 * {
   cursor: none !important;
 }
+@keyframes gradientMove {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes floatParticle {
+  from {
+    transform: translateY(110vh) scale(0.6);
+  }
+
+  to {
+    transform: translateY(-10vh) scale(1.2);
+  }
+}

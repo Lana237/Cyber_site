@@ -45,22 +45,59 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden" style={{ cursor: "none" }}>
-      {/* Custom Cursor */}
       <CustomCursor />
 
-      {/* Progress bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-purple-500 origin-left z-[100]"
         style={{ scaleX }}
       />
 
-      {/* Animated gradient background */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(236,72,153,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            background:
+              "radial-gradient(circle at 20% 30%, rgba(236,72,153,0.22), transparent 35%), radial-gradient(circle at 80% 20%, rgba(168,85,247,0.18), transparent 35%), radial-gradient(circle at 50% 80%, rgba(236,72,153,0.14), transparent 40%), #000",
+            backgroundSize: "200% 200%"
+          }}
+        />
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(236,72,153,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+
+        {Array.from({ length: 45 }).map((_, i) => (
+          <motion.span
+            key={i}
+            className="absolute rounded-full bg-pink-400 shadow-[0_0_14px_rgba(236,72,153,0.9)]"
+            style={{
+              width: i % 3 === 0 ? 4 : 2,
+              height: i % 3 === 0 ? 4 : 2,
+              left: `${(i * 23) % 100}%`,
+              bottom: "-20px",
+              opacity: i % 2 === 0 ? 0.7 : 0.35
+            }}
+            animate={{
+              y: ["0vh", "-120vh"],
+              x: [0, i % 2 === 0 ? 35 : -35],
+              opacity: [0, 0.8, 0]
+            }}
+            transition={{
+              duration: 8 + (i % 6),
+              repeat: Infinity,
+              delay: i * 0.25,
+              ease: "linear"
+            }}
+          />
+        ))}
       </div>
 
-      {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -82,7 +119,6 @@ export default function App() {
             </span>
           </motion.h1>
 
-          {/* Desktop nav */}
           <div className="hidden lg:flex gap-10 tracking-[0.25em] uppercase">
             {navItems.map((item, i) => (
               <motion.button
@@ -99,7 +135,6 @@ export default function App() {
             ))}
           </div>
 
-          {/* Mobile menu button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -110,7 +145,6 @@ export default function App() {
           </motion.button>
         </div>
 
-        {/* Mobile menu */}
         <motion.div
           initial={false}
           animate={{
@@ -137,8 +171,7 @@ export default function App() {
         </motion.div>
       </motion.nav>
 
-      {/* Main content */}
-      <main>
+      <main className="relative z-10">
         <section id="hero">
           <Hero />
         </section>
@@ -160,7 +193,6 @@ export default function App() {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="relative z-10 border-t border-pink-500/10 py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12 mb-12">
